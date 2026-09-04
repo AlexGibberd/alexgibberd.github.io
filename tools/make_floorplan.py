@@ -100,8 +100,9 @@ def stairs(x0, x1, y0, y1, n, arrow):
                f'L {X(cx+0.13)} {Y(ay1+d)}"/>')
 
 
-def label(cx, cy, name, metric=None, imperial=None, small=False):
-    fs = 11.0 if small else 12.5
+def label(cx, cy, name, metric=None, imperial=None, small=False, fs=None):
+    if fs is None:
+        fs = 11.0 if small else 12.5
     out.append(f'<text class="rn" x="{X(cx)}" y="{Y(cy)}" font-size="{fs}">{name}</text>')
     if metric:
         out.append(f'<text class="rd" x="{X(cx)}" y="{Y(cy)+13}">{metric}</text>')
@@ -244,13 +245,13 @@ def ground():
 
 # =============================================================== FIRST ======
 def first():
-    b3_b, sh_t = 3.01, 3.11             # bedroom 3 | shower + landing
-    sh_x1, ld_x0 = 4.08, 4.18           # shower | landing strip
+    b3_b, sh_t = 3.01, 3.11             # bedroom 3 | bathroom + landing
+    sh_x1, ld_x0 = 4.08, 4.18           # bathroom | landing strip
     b2_x1, ldm_x0 = 3.14, 3.24          # bedroom 2 | landing
     b2_b, b1_t = 9.21, 9.31             # bedroom 2 + landing | bedroom 1
 
     room(ba_x0, ba_y0, ba_x1, b3_b, "bed")             # bedroom 3
-    room(ba_x0, sh_t, sh_x1, ba_y1, "sh")              # shower room
+    room(ba_x0, sh_t, sh_x1, ba_y1, "sh")              # bathroom
     room(ld_x0, sh_t, ba_x1, ba_y1, "circ")            # landing, in the addition
     room(ldm_x0, mb_y0, mb_x1, b2_b, "circ")           # landing, in the main body
     room(ld_x0, ba_y1, mb_x1, mb_y0, "circ")           # landing pass-through
@@ -260,36 +261,36 @@ def first():
     envelope_walls()
     punch(ld_x0, MB_Y0 - 0.01, mb_x1, mb_y0 + 0.01, "circ")  # landing passes the rear wall
     wall(ba_x0, b3_b, ba_x1, sh_t)                     # bedroom 3 | below
-    wall(sh_x1, sh_t, ld_x0, ba_y1)                    # shower | landing
+    wall(sh_x1, sh_t, ld_x0, ba_y1)                    # bathroom | landing
     wall(b2_x1, mb_y0, ldm_x0, b2_b)                   # bedroom 2 | landing
     wall(mb_x0, b2_b, mb_x1, b1_t)                     # above | bedroom 1
 
     # -- windows
     win_h(3.30, 4.50, BA_Y0, ba_y0)                    # bedroom 3, rear
-    win_v(3.65, 4.45, BA_X0, ba_x0)                    # shower room, side
+    win_v(3.65, 4.45, BA_X0, ba_x0)                    # bathroom, side
     win_h(0.85, 2.15, MB_Y0, mb_y0)                    # bedroom 2, rear
     win_h(1.55, 3.45, mb_y1, MB_Y1)                    # bedroom 1, front
 
     # -- doors
     door(4.20, b3_b, 5.00, sh_t, 4.20, b3_b, 0, -75, r=0.80)            # landing > bed 3
-    door(sh_x1, 3.35, ld_x0, 4.05, sh_x1, 3.35, 90, 170, r=0.70)        # landing > shower
+    door(sh_x1, 3.35, ld_x0, 4.05, sh_x1, 3.35, 90, 170, r=0.70)        # landing > bathroom
     door(b2_x1, 7.25, ldm_x0, 8.00, b2_x1, 7.25, 90, 172, r=0.75)       # landing > bed 2
     door(4.05, b2_b, 4.85, b1_t, 4.05, b1_t, 0, 75, r=0.80)             # landing > bed 1
 
-    # -- shower room fittings
-    out.append(f'<ellipse class="fx" cx="{X(3.45)}" cy="{Y(3.50)}" '
-               f'rx="{L(0.24)}" ry="{L(0.30)}"/>')                                # wc
-    out.append(f'<rect class="fx" x="{X(ba_x0)}" y="{Y(3.85)}" '
-               f'width="{L(0.52)}" height="{L(0.62)}" rx="3"/>')                  # basin
+    # -- bathroom fittings
+    out.append(f'<rect class="fx" x="{X(ba_x0)}" y="{Y(3.74)}" '
+               f'width="{L(0.52)}" height="{L(0.42)}" rx="3"/>')                  # basin
     out.append(f'<rect class="fx" x="{X(ba_x0)}" y="{Y(4.58)}" '
-               f'width="{L(0.90)}" height="{L(0.90)}"/>')                         # shower tray
+               f'width="{L(0.90)}" height="{L(0.90)}"/>')                         # bath
     out.append(f'<path class="fx" d="M {X(ba_x0+0.90)} {Y(4.58)} '
                f'A {L(0.90)} {L(0.90)} 0 0 1 {X(ba_x0)} {Y(5.48)}"/>')
+    out.append(f'<ellipse class="fx" cx="{X(3.77)}" cy="{Y(5.03)}" '
+               f'rx="{L(0.21)}" ry="{L(0.27)}"/>')                                # wc
     stairs(ld_x0 + 0.06, mb_x1 - 0.06, 5.95, 8.35, 9, "down")
 
     # -- labels
     label(3.83, 1.45, "Bedroom 3", "2.76m × 2.61m", "(9&#8242;1&#8243; × 8&#8242;7&#8243;)")
-    label2(3.55, 4.20, "Shower", "Room")
+    label(3.32, 4.42, "Bathroom", fs=9.5)
     label(4.17, 6.55, "Landing", small=True)
     label(1.65, 6.95, "Bedroom 2", "3.45m × 2.89m", "(11&#8242;4&#8243; × 9&#8242;6&#8243;)")
     label(2.68, 11.55, "Bedroom 1", "3.66m × 4.69m", "(12&#8242; × 15&#8242;5&#8243;)")
@@ -348,7 +349,7 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {round(W)} {round
      width="{round(W)}" height="{round(H)}" role="img"
      aria-labelledby="fp-title fp-desc" preserveAspectRatio="xMidYMid meet">
 <title id="fp-title">Floorplan of 28 Cromwell Road, Lancaster</title>
-<desc id="fp-desc">Three floors drawn to scale. Basement: two cellar rooms with a stair well. Ground floor: porch, hall, lounge with a front bay window, dining room, and a kitchen in the rear back addition. First floor: three bedrooms, a shower room and a landing. Front of the house and Cromwell Road are at the bottom of each plan; the garden is at the top.</desc>
+<desc id="fp-desc">Three floors drawn to scale. Basement: two cellar rooms with a stair well. Ground floor: porch, hall, lounge with a front bay window, dining room, and a kitchen in the rear back addition. First floor: three bedrooms, a bathroom and a landing. Front of the house and Cromwell Road are at the bottom of each plan; the garden is at the top.</desc>
 <style>{STYLE}</style>
 <rect width="100%" height="100%" fill="#fdfcfa"/>
 {chr(10).join(out)}
