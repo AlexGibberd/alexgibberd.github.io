@@ -2,7 +2,7 @@
      width="902" height="749" role="img"
      aria-labelledby="fp-title fp-desc" preserveAspectRatio="xMidYMid meet">
 <title id="fp-title">Floorplan of 28 Cromwell Road, Lancaster</title>
-<desc id="fp-desc">Three floors drawn to scale. Basement: two cellar rooms with a stair well. Ground floor: porch, hall, lounge with a front bay window, dining room, and a kitchen in the rear back addition. First floor: three bedrooms, a shower room and a landing. Front of the house and Cromwell Road are at the bottom of each plan; the garden is at the top.</desc>
+<desc id="fp-desc">Three floors drawn to scale. Basement: two cellar rooms with a stair well. Ground floor: porch, hall, lounge with a front bay window, dining room, and a kitchen in the rear back addition. First floor: three bedrooms, a bathroom and a landing. Front of the house and Cromwell Road are at the bottom of each plan; the garden is at the top.</desc>
 <style>
   .w   { fill: #23201c; }
   .op  { fill: #ffffff; }
@@ -196,10 +196,10 @@
 <path class="dr" d="M 770.56 353.0 L 770.56 386.0 A 33.0 33.0 0 0 1 737.88 357.59"/>
 <rect class="op" x="810.6" y="439.24" width="35.2" height="4.4"/>
 <path class="dr" d="M 810.6 443.64 L 845.8 443.64 A 35.2 35.2 0 0 1 819.71 477.64"/>
-<ellipse class="fx" cx="784.2" cy="188.0" rx="10.56" ry="13.2"/>
-<rect class="fx" x="745.04" y="203.4" width="22.88" height="27.28" rx="3"/>
+<rect class="fx" x="745.04" y="198.56" width="22.88" height="18.48" rx="3"/>
 <rect class="fx" x="745.04" y="235.52" width="39.6" height="39.6"/>
 <path class="fx" d="M 784.64 235.52 A 39.6 39.6 0 0 1 745.04 275.12"/>
+<ellipse class="fx" cx="798.28" cy="255.32" rx="9.24" ry="11.88"/>
 <rect class="st" x="818.96" y="295.8" width="35.2" height="105.6"/>
 <line class="stl" x1="818.96" y1="307.53" x2="854.16" y2="307.53"/>
 <line class="stl" x1="818.96" y1="319.27" x2="854.16" y2="319.27"/>
@@ -214,8 +214,7 @@
 <text class="rn" x="800.92" y="97.8" font-size="12.5">Bedroom 3</text>
 <text class="rd" x="800.92" y="110.8">2.76m × 2.61m</text>
 <text class="rd" x="800.92" y="122.8">(9&#8242;1&#8243; × 8&#8242;7&#8243;)</text>
-<text class="rn" x="788.6" y="218.8" font-size="11">Shower</text>
-<text class="rn" x="788.6" y="231.8" font-size="11">Room</text>
+<text class="rn" x="778.48" y="228.48" font-size="9.5">Bathroom</text>
 <text class="rn" x="815.88" y="322.2" font-size="11.0">Landing</text>
 <text class="rn" x="705.0" y="339.8" font-size="12.5">Bedroom 2</text>
 <text class="rd" x="705.0" y="352.8">3.45m × 2.89m</text>

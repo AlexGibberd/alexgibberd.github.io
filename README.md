@@ -63,9 +63,7 @@ comment in `index.html`:
 
 - **Price** — in the hero (`.hero__price`) and in the page `<title>` / meta description.
 - **Overview text** — the `#overview` section.
-- **Property details table** — `#accommodation`. Two rows still say
-  *To be confirmed* (tenure and council tax band). Fill these in or delete the
-  rows before sharing the link.
+- **Property details table** — `#accommodation`. All rows are filled in.
 - **Energy panel** — `#improvements`. Every figure comes from the EPC issued on
   4 September 2025 (certificate `0330-2594-9110-2105-6555`), which the page
   links to twice. If a newer certificate is issued, update the panel, the
