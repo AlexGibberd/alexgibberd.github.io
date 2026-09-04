@@ -12,6 +12,8 @@ index.html          the whole page
 css/style.css       all styling (colour tokens are at the top, in :root)
 js/main.js          sticky nav, mobile menu, photo lightbox, scroll reveals
 images/             web-optimised photos (-800 for the grid, -1600 for the lightbox)
+                    plus floorplan.svg
+tools/              make_floorplan.py — regenerates images/floorplan.svg
 favicon.svg
 .nojekyll           tells GitHub Pages to serve the files as-is
 ```
@@ -84,8 +86,14 @@ noted in the commit history, or use any image tool — the site only expects the
 - The map is an OpenStreetMap embed centred on 54.042369, -2.806996. To move
   the pin, edit the `bbox` and `marker` values in the `<iframe>` in the
   `#location` section.
-- The floorplan image carries the original agent's watermark (Farrell Heyworth).
-  Replace `images/floorplan.png` and `images/floorplan-1200.png` if you'd rather
-  it didn't.
+- The floorplan is a redrawn SVG (`images/floorplan.svg`), not the original
+  agent image — so it stays sharp at any zoom, carries no watermark and is 16 KB.
+  Layout, fixtures and room labels follow the original plan, but the geometry is
+  rebuilt at one consistent scale (the original is not drawn to scale). Edit
+  `tools/make_floorplan.py` and re-run it to change anything:
+
+  ```bash
+  python tools/make_floorplan.py
+  ```
 - The footer carries a short non-contractual disclaimer, which is worth keeping
   on a private sale listing.
