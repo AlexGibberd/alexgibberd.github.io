@@ -6,3 +6,6 @@ desktop.ini
 # Source material — not published
 google_example.png
 .claude/
+
+# Camera originals kept alongside the web versions, not published
+images/*.jpeg
