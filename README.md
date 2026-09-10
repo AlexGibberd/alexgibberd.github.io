@@ -3,7 +3,8 @@
 A single-page static site for the sale of 28 Cromwell Road, Lancaster, LA1 5BD.
 No build step, no dependencies — plain HTML, CSS and JavaScript.
 
-Live at <https://alexgibberd.github.io/>
+Live at <https://28cromwell.co.uk/> (custom domain; the repo is
+`alexgibberd.github.io`, and that address now redirects to it)
 
 ## Files
 
@@ -39,7 +40,10 @@ rather than a sub-path).
 
 3. On GitHub go to **Settings → Pages**, and under *Build and deployment* set
    **Source: Deploy from a branch**, **Branch: `main`**, **Folder: `/ (root)`**.
-4. Wait a minute or two, then open <https://alexgibberd.github.io/>.
+4. Wait a minute or two, then open <https://28cromwell.co.uk/>.
+
+The custom domain is set by the `CNAME` file in the repo root. Deleting
+that file would drop the site back to `alexgibberd.github.io`.
 
 To update anything later, edit the files, then:
 
@@ -69,7 +73,8 @@ comment in `index.html`:
   links to twice. If a newer certificate is issued, update the panel, the
   *EPC rating* row, the facts strip and the meta description together.
 - **Improvements list** — `#improvements`. Confirm each item is accurate.
-- **Email address** — appears in the `#contact` section and the footer.
+- **Email address** — `enquiries@28cromwell.co.uk`, in the `#contact` section and the
+  footer. It is also printed on the For Sale board (`../make_sign.py`).
 
 ### Adding photographs
 
